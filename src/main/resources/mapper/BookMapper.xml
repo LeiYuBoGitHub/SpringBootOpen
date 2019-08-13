@@ -11,4 +11,13 @@
         (#{name},sysdate(),sysdate())
     </insert>
 
+    <update id="update" parameterType="com.lyb.entity.Book">
+        update book set
+        <if test="name != null">
+            name = #{name}
+        </if>
+        where 1 = 1
+        and id = #{id}
+    </update>
+
 </mapper>

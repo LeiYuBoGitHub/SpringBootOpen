@@ -1,6 +1,7 @@
 package com.lyb.service;
 
 import com.lyb.common.result.ResultData;
+import com.lyb.entity.Book;
 
 /**
  * @Auther: 野性的呼唤
@@ -10,5 +11,11 @@ import com.lyb.common.result.ResultData;
 public interface BookService {
 
     ResultData getList();
+
+    Book get(Book book);
+
+    ResultData add(Book book);
+
+    Book update(Book book);
 
 }

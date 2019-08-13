@@ -9,6 +9,8 @@ import com.lyb.common.result.ResultData;
  */
 public class SuccessResultData <T> implements ResultData {
 
+    private static final long serialVersionUID = 6579450631256564471L;
+
     private boolean success = true;
 
     private T data;

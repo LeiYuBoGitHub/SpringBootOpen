@@ -3,7 +3,8 @@ package com.lyb.controller;
 import com.lyb.common.result.ResultData;
 import com.lyb.common.result.ResultDataFactory;
 import com.lyb.entity.Book;
-import com.lyb.service.BookService;
+import com.lyb.entity.User;
+import com.lyb.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -14,40 +15,27 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @Auther: 野性的呼唤
- * @Date: 2019/8/7 18:21
+ * @Date: 2019/8/9 15:52
  * @Description:
  */
 
 @Controller
-@RequestMapping("book")
-public class BookController {
+@RequestMapping("user")
+public class UserController {
 
     @Autowired
-    BookService bookService;
-
-    @ResponseBody
-    @RequestMapping("list")
-    public ResultData list() {
-        return bookService.getList();
-    }
+    UserService userService;
 
     @ResponseBody
     @RequestMapping(value = "get", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.POST)
-    public ResultData get(@RequestBody Book book) {
-        return ResultDataFactory.createSuccessData(bookService.get(book));
-        //return bookService.get(book);
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "add", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.POST)
-    public ResultData add(@RequestBody Book book) {
-        return bookService.add(book);
+    public ResultData get(@RequestBody User user) {
+        return ResultDataFactory.createSuccessData(userService.get(user));
     }
 
     @ResponseBody
     @RequestMapping(value = "update", produces = MediaType.APPLICATION_JSON_UTF8_VALUE, method = RequestMethod.POST)
-    public ResultData update(@RequestBody Book book) {
-        bookService.update(book);
+    public ResultData update(@RequestBody User user) {
+        userService.update(user);
         return ResultDataFactory.createSuccess("更新成功!");
     }
 }

@@ -29,7 +29,7 @@ spring:
     host: 127.0.0.1
     port: 6379
     password:
-    jedis:
+    lettuce:
       pool:
         ## 连接池最大连接数（使用负值表示没有限制）
         max-active: 8
@@ -39,13 +39,13 @@ spring:
         max-idle: 8
         ## 连接池中的最小空闲连接
         min-idle: 0
-    timeout: 0
+    timeout: 1000
 
 
 #----------打印日志----------
 logging:
   level:
-    com.baitu.mapper : debug
+    com.lyb.mapper : info
 #----------打印日志----------
 
 mybatis:

@@ -7,7 +7,9 @@ import com.lyb.common.result.ResultData;
  * @Date: 2018/11/19 18:48
  * @Description:
  */
-public class ErrorResultData implements ResultData {
+public class ErrorResultData implements ResultData{
+
+    private static final long serialVersionUID = 2319676785987607576L;
 
     private boolean success = false;
 
