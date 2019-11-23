@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yubo.web.mapper.BookMapper">
+
+    <insert id="insert" parameterType="com.yubo.web.entity.Book">
+        insert into book
+            (name,create_time,update_time)
+        values
+        (#{name},sysdate(),sysdate())
+    </insert>
+
+</mapper>
