@@ -1,33 +1,14 @@
 server:
-  port: 8501
+  port: 8502
 spring:
   profiles:
     active: dev
----
-spring:
-  profiles: dev
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/book?useSSL=false&serverTimezone=CST&useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: root
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-  servlet:
-    multipart:
-      enabled: true
-      max-file-size: 10MB
-      max-request-size: 100MB
 
 #----------打印日志----------
 logging:
   level:
     com.yubo.web.mapper: info
 #----------打印日志----------
-
-mybatis:
-  mapper-locations: classpath*:mapper/*.xml
-  type-aliases-package: com.yubo.web.entity
 
 #----------Http连接池配置----------
 http:

@@ -1,6 +1,7 @@
 package com.yubo.web.service;
 
 import com.yubo.web.common.result.RestResult;
+import com.yubo.web.entity.Book;
 
 /**
  * @Auther: 野性的呼唤
@@ -8,6 +9,8 @@ import com.yubo.web.common.result.RestResult;
  * @Description:
  */
 public interface BookService {
+
+    RestResult add(Book book);
 
     RestResult getList();
 

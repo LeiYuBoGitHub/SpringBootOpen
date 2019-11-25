@@ -27,6 +27,11 @@ public class BookServiceImpl implements BookService {
     @Autowired
     BookMapper bookMapper;
 
+    public RestResult add(Book book) {
+        bookMapper.insert(book);
+        return RestResultFactory.successMessage("数据添加成功");
+    }
+
     public RestResult getList() {
 
         List<Book> bookList = bookMapper.selectList();

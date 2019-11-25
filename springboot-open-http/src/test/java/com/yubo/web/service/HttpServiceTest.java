@@ -1,5 +1,6 @@
 package com.yubo.web.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.yubo.web.common.util.HttpUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Stream;
 
 /**
@@ -26,7 +29,19 @@ class HttpServiceTest {
 
     @Autowired
     HttpService httpService;
-    int size = 100000;
+
+    private int size = 100000;
+
+    @Test
+    void post() {
+        String url = "http://localhost:8501/book/add";
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "野性的呼唤");
+        String json = JSONObject.toJSONString(map);
+        String res = httpService.post(url, json);
+        logger.info("输出结果:" + res);
+    }
+
     @Test
     void get() {
         long startTime = System.currentTimeMillis();
