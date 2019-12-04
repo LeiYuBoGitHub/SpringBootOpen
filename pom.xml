@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.yubo.web</groupId>
-  <artifactId>springboot-open</artifactId>
+  <artifactId>SpringBootOpen</artifactId>
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
@@ -14,7 +14,7 @@
     <module>springboot-open-redis</module>
   </modules>
 
-  <name>springboot-open</name>
+  <name>SpringBootOpen</name>
 
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -29,22 +29,6 @@
   </properties>
 
   <dependencies>
-
-    <!--Web容器-->
-    <!--SpringBoot-->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <!--因为我不想用LogBack日志 而Spring Boot 默认是 LogBack-->
-      <!--去除LogBack日志依赖-->
-      <exclusions>
-        <exclusion>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-starter-logging</artifactId>
-        </exclusion>
-      </exclusions>
-      <version>2.2.0.RELEASE</version>
-    </dependency>
 
     <!-- SpringBoot 测试 -->
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
@@ -67,6 +51,13 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-log4j2</artifactId>
       <version>2.2.0.RELEASE</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-web -->
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-web</artifactId>
+      <version>2.12.1</version>
     </dependency>
 
     <!-- 阿里巴巴 JSON解析包 -->
@@ -121,7 +112,7 @@
 
   <build>
 
-    <defaultGoal>springboot-open</defaultGoal>
+    <defaultGoal>SpringBootOpen</defaultGoal>
 
     <plugins>
       <plugin>
