@@ -26,19 +26,31 @@ class HttpServiceTest {
 
     @Autowired
     HttpService httpService;
-    int size = 100000;
+    int size = 10000;
     @Test
     void get() {
+        int t = 0;
+        int c = 0;
         long startTime = System.currentTimeMillis();
         logger.info("开始时间:" + startTime);
         for(int i = 0; i < size; i++) {
-            String url = "http://localhost:8501/book/list";
+            String url = "http://localhost:8762/user/user";
             String res = httpService.get(url);
             logger.info("输出结果:" + res);
+
+            if (res.contains("Tom")) {
+                t++;
+            }
+            if (res.contains("Count")) {
+                c++;
+            }
         }
+
         long endTime = System.currentTimeMillis();
         logger.info("结束时间:" + endTime);
         logger.info("结束时间:" + (endTime - startTime));
+        logger.info("t:" + t);
+        logger.info("c:" + c);
     }
 
     @Test
