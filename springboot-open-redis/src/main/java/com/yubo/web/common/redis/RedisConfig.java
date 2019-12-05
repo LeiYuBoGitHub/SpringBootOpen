@@ -27,8 +27,8 @@ import java.time.Duration;
  */
 
 
-@Configuration
-@EnableCaching
+//@Configuration
+//@EnableCaching
 public class RedisConfig {
 
     @Bean

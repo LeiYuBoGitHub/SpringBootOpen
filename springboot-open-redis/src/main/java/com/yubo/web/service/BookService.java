@@ -14,6 +14,10 @@ public interface BookService {
 
     RestResult add(Book book);
 
+    Book update(Book book);
+
+    Book get(Book book);
+
     List<Book> list();
 
 }
