@@ -9,8 +9,10 @@ import com.yubo.web.service.BookService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ import java.util.List;
  * @Description:
  */
 
+@Transactional
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -33,13 +36,31 @@ public class BookServiceImpl implements BookService {
         return RestResultFactory.successMessage("数据添加成功");
     }
 
-    public RestResult getList() {
+    @CachePut(cacheNames = "book", key = "#p0.id")
+    public Book update(Book book) {
+        bookMapper.update(book);
+        return bookMapper.selectByBook(book);
+    }
+
+    @Cacheable(cacheNames = "book", key = "#p0.id")
+    public Book get(Book book) {
+
+        book = bookMapper.selectByBook(book);
+
+        logger.info("返回数据:" + JSONObject.toJSONString(book));
+
+        return book;
+    }
+
+    @Cacheable(cacheNames = "book")
+    public List<Book> list() {
 
         List<Book> bookList = bookMapper.selectList();
 
         logger.info("返回数据:" + JSONObject.toJSONString(bookList));
 
-        return RestResultFactory.successResult(bookList);
+        return bookList;
 
     }
+
 }

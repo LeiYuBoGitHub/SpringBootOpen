@@ -21,6 +21,10 @@ public class HttpServiceImpl implements HttpService {
     @Resource
     HttpConnectionPoolServer httpConnectionPoolServer;
 
+    public String post(String url, String json) {
+        return httpConnectionPoolServer.post(url, json);
+    }
+
     public String get(String url) {
         return httpConnectionPoolServer.get(url);
     }
