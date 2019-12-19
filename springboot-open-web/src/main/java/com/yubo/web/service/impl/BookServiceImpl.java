@@ -33,6 +33,10 @@ public class BookServiceImpl implements BookService {
         return RestResultFactory.successMessage("数据添加成功");
     }
 
+    public RestResult info(Book book) {
+        return RestResultFactory.successResult(bookMapper.select(book));
+    }
+
     public RestResult getList() {
 
         List<Book> bookList = bookMapper.selectList();

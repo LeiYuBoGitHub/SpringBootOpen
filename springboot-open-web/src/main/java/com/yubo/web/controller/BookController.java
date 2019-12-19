@@ -26,6 +26,11 @@ public class BookController {
         return bookService.add(book);
     }
 
+    @GetMapping(value = "info")
+    public RestResult info(Book book) {
+        return bookService.info(book);
+    }
+
     @GetMapping("list")
     public RestResult list() {
         return bookService.getList();

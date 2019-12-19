@@ -12,6 +12,8 @@ public interface BookService {
 
     RestResult add(Book book);
 
+    RestResult info(Book book);
+
     RestResult getList();
 
 }
