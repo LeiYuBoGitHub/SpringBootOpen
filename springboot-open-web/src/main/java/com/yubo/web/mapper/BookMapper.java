@@ -19,6 +19,8 @@ public interface BookMapper {
 
     void insert(Book book);
 
+    Book select(Book book);
+
     @Select("select * from book")
     List<Book> selectList();
 

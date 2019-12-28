@@ -12,8 +12,9 @@
 
   <parent>
     <groupId>com.yubo.web</groupId>
-    <artifactId>SpringBootOpen</artifactId>
+    <artifactId>springboot-open</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
 
   <properties>
