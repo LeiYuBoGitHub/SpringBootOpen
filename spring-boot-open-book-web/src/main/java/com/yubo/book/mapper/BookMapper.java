@@ -1,6 +1,6 @@
-package com.yubo.web.mapper;
+package com.yubo.book.mapper;
 
-import com.yubo.web.entity.Book;
+import com.yubo.book.entity.Book;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
