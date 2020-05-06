@@ -128,15 +128,9 @@ public class HttpConnectionPoolConfig {
 
     /**
      * 使用builder创建一个RequestConfig对象
-     * @param builder
-     * @return
      */
     @Bean
     public RequestConfig getRequestConfig(@Qualifier("builder")RequestConfig.Builder builder){
-
-        RequestConfig requestConfig = builder.build();
-
-        return requestConfig;
-
+        return builder.build();
     }
 }

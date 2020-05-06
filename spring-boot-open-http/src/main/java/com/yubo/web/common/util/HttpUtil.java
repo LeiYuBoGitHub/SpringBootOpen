@@ -52,8 +52,6 @@ public class HttpUtil {
         } catch (IOException e) {
             e.printStackTrace();
             return null;
-        }finally {
-
         }
         return null;
     }
