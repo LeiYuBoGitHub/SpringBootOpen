@@ -9,9 +9,10 @@
   <packaging>pom</packaging>
   <version>1.0-SNAPSHOT</version>
   <modules>
-    <module>springboot-open-http</module>
+    <module>spring-boot-open-http</module>
     <module>springboot-open-web</module>
     <module>springboot-open-redis</module>
+    <module>spring-boot-open-http</module>
   </modules>
 
   <name>SpringBootOpen</name>
