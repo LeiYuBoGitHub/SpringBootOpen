@@ -29,7 +29,7 @@ class HttpServiceTest {
     @Autowired
     HttpService httpService;
 
-    private int size = 100000;
+    private int size = 1;
 
     @Test
     void post() {
