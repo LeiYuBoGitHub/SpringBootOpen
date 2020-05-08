@@ -11,6 +11,12 @@ public class Book {
 
     private String name;
 
+    public Book () {}
+
+    public Book (Long id) {
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }

@@ -13,8 +13,8 @@ import org.springframework.stereotype.Component;
  * @Date: 2020/5/6 23:56
  * @Description:
  */
-@Aspect
-@Component
+//@Aspect
+//@Component
 public class ResponseFilter {
 
     private static Logger logger = LogManager.getLogger(ResponseFilter.class);

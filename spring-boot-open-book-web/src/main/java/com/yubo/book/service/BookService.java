@@ -2,6 +2,7 @@ package com.yubo.book.service;
 
 import com.yubo.book.common.result.RestResult;
 import com.yubo.book.entity.Book;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * @Auther: 野性的呼唤
@@ -12,8 +13,8 @@ public interface BookService {
 
     RestResult add(Book book);
 
-    RestResult info(Book book);
+    RestResult get(Long id);
 
-    RestResult getList();
+    RestResult list();
 
 }

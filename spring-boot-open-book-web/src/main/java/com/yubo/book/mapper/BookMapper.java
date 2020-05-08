@@ -19,6 +19,7 @@ public interface BookMapper {
 
     void insert(Book book);
 
+    @Select("select * from book where 1 = 1 and id = #{id}")
     Book select(Book book);
 
     @Select("select * from book")

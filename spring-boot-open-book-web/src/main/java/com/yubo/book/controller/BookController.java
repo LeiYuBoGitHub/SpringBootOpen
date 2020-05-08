@@ -2,8 +2,10 @@ package com.yubo.book.controller;
 
 import com.yubo.book.common.result.RestResult;
 import com.yubo.book.entity.Book;
+import com.yubo.book.filter.log.WebLog;
 import com.yubo.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @RestController
-@RequestMapping("book")
+@RequestMapping("books")
 public class BookController {
 
     @Autowired
@@ -25,14 +27,16 @@ public class BookController {
         return bookService.add(book);
     }
 
-    @GetMapping("info")
-    public RestResult info(Book book) {
-        return bookService.info(book);
+    @GetMapping(value="/{id}")
+    @WebLog(description = "获取单个书籍接口")
+    public RestResult get(@PathVariable Long id) {
+        return bookService.get(id);
     }
 
-    @GetMapping("list")
+    @GetMapping()
+    @WebLog(description = "获取所有书籍接口")
     public RestResult list() {
-        return bookService.getList();
+        return bookService.list();
     }
 
 }
