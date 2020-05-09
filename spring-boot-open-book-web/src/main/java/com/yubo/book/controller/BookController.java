@@ -5,7 +5,6 @@ import com.yubo.book.entity.Book;
 import com.yubo.book.filter.log.WebLog;
 import com.yubo.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 

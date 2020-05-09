@@ -86,7 +86,7 @@ class HttpServiceTest {
         long startTime = System.currentTimeMillis();
         logger.info("开始时间:" + startTime);
         for(int i = 0; i < size; i++) {
-            String url = "http://localhost:8501/book/list";
+            String url = "http://localhost:8501/books/";
             String res = httpService.defaultGetPlus(url);
             logger.info("输出结果:" + res);
         }

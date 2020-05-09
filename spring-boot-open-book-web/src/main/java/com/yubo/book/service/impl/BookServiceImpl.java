@@ -39,6 +39,7 @@ public class BookServiceImpl implements BookService {
     }
 
     public RestResult list() {
+        logger.warn("111111111");
         List<Book> bookList = bookMapper.selectList();
         return RestResultFactory.successResult(bookList);
     }
