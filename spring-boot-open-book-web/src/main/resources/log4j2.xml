@@ -29,6 +29,22 @@
             <DefaultRolloverStrategy max="20" />
         </RollingRandomAccessFile>
 
+        <RollingRandomAccessFile name="WarnFile"
+                                 fileName="${LOG_HOME}/warn.log"
+                                 filePattern="${LOG_HOME}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
+            <Filters>
+                <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <!--charset 设置中文不乱码-->
+            <PatternLayout charset="UTF-8" pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="20" />
+        </RollingRandomAccessFile>
+
         <RollingRandomAccessFile name="ErrorFile"
                                  fileName="${LOG_HOME}/error.log"
                                  filePattern="${LOG_HOME}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
@@ -70,6 +86,7 @@
         <Root level="info">
             <AppenderRef ref="Console" />
             <AppenderRef ref="InfoFile" />
+            <AppenderRef ref="WarnFile" />
             <AppenderRef ref="ErrorFile" />
             <AppenderRef ref="FatalFile" />
         </Root>
