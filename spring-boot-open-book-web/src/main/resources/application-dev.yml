@@ -15,9 +15,9 @@ spring:
 #----------打印日志----------
 logging:
   level:
-    com.yubo.web.mapper: info
+    com.beau.book.mapper: info
 #----------打印日志----------
 
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
-  type-aliases-package: com.yubo.web.entity
+  type-aliases-package: com.beau.book.entity
