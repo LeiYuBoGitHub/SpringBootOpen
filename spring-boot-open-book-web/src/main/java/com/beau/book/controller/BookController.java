@@ -21,13 +21,20 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @PostMapping(value = "add", produces = MediaType.APPLICATION_JSON_VALUE)
-    public RestResult sweepCodeOpen(@RequestBody Book book) {
+    @WebLog(description = "添加书籍接口")
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResult add(@RequestBody Book book) {
         return bookService.add(book);
     }
 
-    @GetMapping(value="/{id}")
+    @WebLog(description = "修改书籍接口")
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public RestResult update(@RequestBody Book book) {
+        return bookService.update(book);
+    }
+
     @WebLog(description = "获取单个书籍接口")
+    @GetMapping(value="/{id}")
     public RestResult get(@PathVariable Long id) {
         return bookService.get(id);
     }

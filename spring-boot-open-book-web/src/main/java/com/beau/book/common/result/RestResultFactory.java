@@ -1,5 +1,6 @@
 package com.beau.book.common.result;
 
+import com.beau.book.common.result.impl.ErrorMessage;
 import com.beau.book.common.result.impl.SuccessMessage;
 import com.beau.book.common.result.impl.SuccessResult;
 
@@ -12,6 +13,12 @@ public class RestResultFactory {
 
     public static RestResult successMessage(String message) {
         SuccessMessage result = new SuccessMessage();
+        result.setMessage(message);
+        return result;
+    }
+
+    public static RestResult errorMessage(String message) {
+        ErrorMessage result = new ErrorMessage();
         result.setMessage(message);
         return result;
     }

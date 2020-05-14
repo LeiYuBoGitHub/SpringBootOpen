@@ -13,6 +13,16 @@ public class Book {
 
     private String bookName;
 
+    private Author author;
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
     public Long getId() {
         return id;
     }

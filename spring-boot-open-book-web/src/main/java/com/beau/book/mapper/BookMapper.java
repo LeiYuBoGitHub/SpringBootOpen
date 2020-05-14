@@ -18,6 +18,8 @@ public interface BookMapper {
 
     void insert(Book book);
 
+    void update(Book book);
+
     Book select(Book book);
 
     List<Book> selectList();

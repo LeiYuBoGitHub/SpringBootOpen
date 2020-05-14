@@ -1,28 +1,21 @@
 package com.beau.book.service;
 
 import com.beau.book.common.result.RestResult;
-import com.beau.book.entity.Book;
+import com.beau.book.entity.Author;
 
 /**
  * @Auther: 野性的呼唤
- * @Date: 2019/8/7 17:59
+ * @Date: 2020/5/14 17:28
  * @Description:
  */
-public interface BookService {
+public interface AuthorService {
 
     /**
      * 添加
-     * @param book 对象
+     * @param author 对象
      * @return 对象
      */
-    RestResult add(Book book);
-
-    /**
-     * 修改
-     * @param book 对象
-     * @return 对象
-     */
-    RestResult update(Book book);
+    RestResult add(Author author);
 
     /**
      * 获取

@@ -19,17 +19,37 @@
             (#{bookName},sysdate(),sysdate())
     </insert>
 
+    <update id="update">
+        update book
+        <set>
+            <if test="authorId != null">
+                author_id = #{authorId},
+            </if>
+            <if test="bookName != null">
+                book_name = #{bookName},
+            </if>
+            update_time = sysdate()
+        </set>
+        <where>
+            id = #{id}
+        </where>
+    </update>
+
     <select id="select" resultMap="bookMap" parameterType="com.beau.book.entity.Book">
         select * from book
         <where>
             <if test="id">
                 and id = #{id}
             </if>
+            and state = 0
         </where>
     </select>
 
     <select id="selectList" resultMap="bookMap" parameterType="com.beau.book.entity.Book">
-        select * from book;
+        select * from book
+        <where>
+            and state = 0
+        </where>
     </select>
 
 </mapper>

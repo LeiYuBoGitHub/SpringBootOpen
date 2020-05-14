@@ -29,6 +29,6 @@ class BookMapperTest {
     @Test
     void selectList() {
         List<Book> bookList = bookMapper.selectList();
-        bookList.forEach(book -> System.out.println(book.getName()));
+        bookList.forEach(book -> System.out.println(book.getBookName()));
     }
 }
