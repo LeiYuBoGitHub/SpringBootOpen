@@ -8,6 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
 /**
  * @Auther: 野性的呼唤
  * @Date: 2019/8/7 18:21
@@ -45,4 +51,8 @@ public class BookController {
         return bookService.list();
     }
 
+    @GetMapping("download/{id}")
+    public void download(@PathVariable Long id, HttpServletRequest request, HttpServletResponse response) {
+        bookService.download(id, request, response);
+    }
 }

@@ -8,11 +8,17 @@ import com.beau.book.entity.Book;
 import com.beau.book.mapper.AuthorMapper;
 import com.beau.book.mapper.BookMapper;
 import com.beau.book.service.BookService;
+import com.sun.deploy.net.URLEncoder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.apache.tomcat.util.http.fileupload.util.mime.MimeUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.List;
 
 /**
@@ -69,6 +75,22 @@ public class BookServiceImpl implements BookService {
         List<Book> bookList = bookMapper.selectList();
         toView(bookList);
         return RestResultFactory.successResult(bookList);
+    }
+
+    /**
+     * 下载
+     */
+    public void download(Long id, HttpServletRequest request, HttpServletResponse response) {
+        try {
+            InputStream inputStream = new FileInputStream(new File("C:\\Users\\野性的呼唤\\Desktop\\鬼吹灯1全本.txt"));
+            OutputStream outputStream = response.getOutputStream();
+            response.setContentType("application/x-download");
+            response.setHeader("Content-Disposition", URLEncoder.encode("attachment;filename=鬼吹灯1全本.txt","UTF-8"));
+            IOUtils.copy(inputStream, outputStream);
+            outputStream.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean checkAddBook(Book book) {

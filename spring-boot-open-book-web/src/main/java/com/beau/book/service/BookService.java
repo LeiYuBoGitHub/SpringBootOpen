@@ -3,6 +3,9 @@ package com.beau.book.service;
 import com.beau.book.common.result.RestResult;
 import com.beau.book.entity.Book;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @Auther: 野性的呼唤
  * @Date: 2019/8/7 17:59
@@ -36,5 +39,10 @@ public interface BookService {
      * @return 对象
      */
     RestResult list();
+
+    /**
+     * 下载
+     */
+    void download(Long id, HttpServletRequest request, HttpServletResponse response);
 
 }
