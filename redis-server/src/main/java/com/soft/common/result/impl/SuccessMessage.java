@@ -1,6 +1,7 @@
-package com.yubo.web.common.result.impl;
+package com.soft.common.result.impl;
 
-import com.yubo.web.common.result.RestResult;
+
+import com.soft.common.result.RestResult;
 
 /**
  * @Auther: 野性的呼唤
