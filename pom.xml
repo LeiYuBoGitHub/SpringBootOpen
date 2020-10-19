@@ -14,6 +14,7 @@
     <module>spring-boot-open-book-web</module>
       <module>order-server</module>
       <module>device-server</module>
+    <module>redis-server</module>
   </modules>
 
   <name>spring-boot-open</name>
