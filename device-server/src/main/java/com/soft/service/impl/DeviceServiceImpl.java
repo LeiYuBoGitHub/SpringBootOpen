@@ -30,18 +30,19 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public RestResult open(StudentParam studentParam) {
-
         long start = System.currentTimeMillis();
-
-        /*try {
-            Thread.sleep(5000);
-            Map<String, Object> map = new HashMap<>(16);
-            map.put("studentId", studentParam.getStudentId());
-            RestTemplateUtil.post(JSONObject.toJSONString(map), "http://localhost:8100/order/callBack");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
-
+        new Thread(() -> {
+            try {
+                logger.info("准备睡眠");
+                Thread.sleep(10000);
+                logger.info("睡眠完成");
+                Map<String, Object> map = new HashMap<>(16);
+                map.put("studentId", studentParam.getStudentId());
+                RestTemplateUtil.post(JSONObject.toJSONString(map), "http://localhost:8100/order/callBack");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
         long end = System.currentTimeMillis();
 
         return RestResultFactory.successMessage("机器消息:" + studentParam.getStudentId() + "耗时:" + (end-start));

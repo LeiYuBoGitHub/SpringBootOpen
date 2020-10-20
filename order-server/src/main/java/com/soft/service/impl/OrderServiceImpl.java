@@ -65,7 +65,7 @@ public class OrderServiceImpl implements OrderService {
 
     private boolean waitRequestState(String studentId) throws InterruptedException {
         logger.info("准备等待");
-        this.wait(30000);
+        this.wait(5000);
         //从缓存中获取数据
         JSONObject deviceOpenStateJsonObject = (JSONObject) redisTemplate.opsForValue().get(RedisKeyConfig.DEVICE_OPEN_STATE + studentId);
         if (deviceOpenStateJsonObject == null) {
@@ -92,7 +92,7 @@ public class OrderServiceImpl implements OrderService {
         //唤醒对象
         synchronized (this) {
             logger.info("[" + studentParam.getStudentId() + "]唤醒服务器");
-            this.notify();
+            this.notifyAll();
         }
 
         long end = System.currentTimeMillis();
